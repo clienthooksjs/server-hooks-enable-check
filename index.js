@@ -5,7 +5,7 @@ const fork = require('child_process').fork;
 const path = require('path');
 
 class EnableCheckPlugin {
-  constructor({ cwd = '', hookName = '' } = {}) {
+  constructor({ cwd = '', hookName = '', hookParams = {} } = {}) {
     this[Symbol.for('hookName')] = hookName;
 
     this[Symbol.for('initProcess')]();

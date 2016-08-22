@@ -6,6 +6,7 @@ const path = require('path');
 
 class EnableCheckPlugin {
   constructor({ cwd = '', hookName = '', hookParams = {} } = {}) {
+    this[Symbol.for('hookParams')] = hookParams;
     this[Symbol.for('hookName')] = hookName;
 
     this[Symbol.for('initProcess')]();
@@ -19,12 +20,20 @@ class EnableCheckPlugin {
     return this[Symbol.for('hookName')];
   }
 
+  getHookParams() {
+    return this[Symbol.for('hookParams')];
+  }
+
   [Symbol.for('initProcess')]() {
     const modulePath = path.join(__dirname, 'lib','enable-check.js');
 
+    const hookParams = JSON.stringify(this.getHookParams());
+
     const hookName = this.getHookName();
 
-    this[Symbol.for('process')] = fork(modulePath, [hookName], {silent: true});
+    const process = this.getProcess();
+
+    process = fork(modulePath, [hookName, hookParams], {silent: true});
   }
 };
 

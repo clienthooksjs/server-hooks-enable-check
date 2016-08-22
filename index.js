@@ -33,7 +33,7 @@ class EnableCheckPlugin {
 
     const process = this.getProcess();
 
-    process = fork(modulePath, [hookName, hookParams], {silent: true});
+    this[Symbol.for('process')] = fork(modulePath, [hookName, hookParams], {silent: true});
   }
 };
 

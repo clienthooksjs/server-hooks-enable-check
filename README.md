@@ -36,7 +36,7 @@ support the completion of the project team can not be separated.
 
 ### License
 
-`server-hooks-enable-check` is released under [MIT License](https://github.com/clienthooksjs/client-hooks-enable-check/blob/master/LICENSE).
+`server-hooks-enable-check` is released under [MIT License](https://github.com/exocoetus/server-hooks-enable-check/blob/master/LICENSE).
 
 [npm-url]: https://badge.fury.io/js/server-hooks-enable-check
 [npm-version]: https://badge.fury.io/js/server-hooks-enable-check.svg
